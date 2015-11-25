@@ -155,6 +155,11 @@ AC_ARG_ENABLE(fx2lafw, AC_HELP_STRING([--enable-fx2lafw],
 	[HW_FX2LAFW="$enableval"],
 	[HW_FX2LAFW=$HW_ENABLED_DEFAULT])
 
+AC_ARG_ENABLE(generig-iio, AC_HELP_STRING([--enable-generic-iio],
+	[enable Generic IIO support [default=yes]]),
+	[HW_GENERIC_IIO="$enableval"],
+	[HW_GENERIC_IIO=$HW_ENABLED_DEFAULT])
+
 AC_ARG_ENABLE(gmc-mh-1x-2x, AC_HELP_STRING([--enable-gmc-mh-1x-2x],
 	[enable gmc-mh-1x-2x support [default=yes]]),
 	[HW_GMC_MH_1X_2X="$enableval"],
@@ -372,6 +377,13 @@ PKG_CHECK_MODULES([libftdi], [libftdi >= 0.16],
 	SR_PKGLIBS="$SR_PKGLIBS libftdi"],
 	[HW_ASIX_SIGMA="no"; HW_CHRONOVU_LA="no"; HW_IKALOGIC_SCANAPLUS="no"])
 
+# libiio is only needed for some hardware drivers. Disable them if not found.
+PKG_CHECK_MODULES([libiio], [libiio >= 0.6],
+	[LIB_CFLAGS="$LIB_CFLAGS $libiio_CFLAGS";
+	LIBS="$LIBS $libiio_LIBS";
+	SR_PKGLIBS="$SR_PKGLIBS libiio"],
+	[HW_GENERIC_IIO="no"])
+
 # The Check unit testing framework is optional. Disable if not found.
 PKG_CHECK_MODULES([check], [check >= 0.9.4],
 	[have_check="yes"; LIB_CFLAGS="$LIB_CFLAGS $check_CFLAGS";
@@ -460,6 +472,11 @@ fi
 AM_CONDITIONAL(HW_FX2LAFW, test x$HW_FX2LAFW = xyes)
 if test "x$HW_FX2LAFW" = "xyes"; then
 	AC_DEFINE(HAVE_HW_FX2LAFW, 1, [fx2lafw support])
+fi
+
+AM_CONDITIONAL(HW_GENERIC_IIO, test x$HW_GENERIC_IIO = xyes)
+if test "x$HW_GENERIC_IIO" = "xyes"; then
+	AC_DEFINE(HAVE_HW_GENERIC_IIO, 1, [Generic IIO support])
 fi
 
 AM_CONDITIONAL(HW_GMC_MH_1X_2X, test x$HW_GMC_MH_1X_2X = xyes)
@@ -599,7 +616,7 @@ echo "Detected libraries:"
 echo
 
 # Note: This only works for libs with pkg-config integration.
-for lib in "glib-2.0 >= 2.32.0" "libzip >= 0.10" "libserialport >= 0.1.0" "librevisa >= 0.0.20130812" "libusb-1.0 >= 1.0.16" "libftdi >= 0.16" "check >= 0.9.4"; do
+for lib in "glib-2.0 >= 2.32.0" "libzip >= 0.10" "libserialport >= 0.1.0" "librevisa >= 0.0.20130812" "libusb-1.0 >= 1.0.16" "libftdi >= 0.16" "libiio >= 0.6" "check >= 0.9.4"; do
 	optional="OPTIONAL"
 	if test "x$lib" = "xglib-2.0 >= 2.32.0"; then optional="REQUIRED"; fi
 	if test "x$lib" = "xlibzip >= 0.10"; then optional="REQUIRED"; fi
@@ -627,6 +644,7 @@ echo "  - conrad-digi-35-cpu.............. $HW_CONRAD_DIGI_35_CPU"
 echo "  - demo............................ $HW_DEMO"
 echo "  - fluke-dmm....................... $HW_FLUKE_DMM"
 echo "  - fx2lafw......................... $HW_FX2LAFW"
+echo "  - generic-iio..................... $HW_GENERIC_IIO"
 echo "  - gmc-mh-1x-2x.................... $HW_GMC_MH_1X_2X"
 echo "  - hameg-hmo....................... $HW_HAMEG_HMO"
 echo "  - hantek-dso...................... $HW_HANTEK_DSO"

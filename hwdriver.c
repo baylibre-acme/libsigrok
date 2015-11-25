@@ -154,6 +154,9 @@ extern SR_PRIV struct sr_dev_driver conrad_digi_35_cpu_driver_info;
 #ifdef HAVE_HW_DEMO
 extern SR_PRIV struct sr_dev_driver demo_driver_info;
 #endif
+#ifdef HAVE_HW_GENERIC_IIO
+extern SR_PRIV struct sr_dev_driver generic_iio_driver_info;
+#endif
 #ifdef HAVE_HW_GMC_MH_1X_2X
 extern SR_PRIV struct sr_dev_driver gmc_mh_1x_2x_rs232_driver_info;
 extern SR_PRIV struct sr_dev_driver gmc_mh_2x_bd232_driver_info;
@@ -308,6 +311,9 @@ static struct sr_dev_driver *drivers_list[] = {
 #endif
 #ifdef HAVE_HW_DEMO
 	&demo_driver_info,
+#endif
+#ifdef HAVE_HW_GENERIC_IIO
+	&generic_iio_driver_info,
 #endif
 #ifdef HAVE_HW_GMC_MH_1X_2X
 	&gmc_mh_1x_2x_rs232_driver_info,

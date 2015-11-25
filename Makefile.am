@@ -121,6 +121,12 @@ libsigrok_la_SOURCES += \
 	hardware/atten-pps3xxx/protocol.c \
 	hardware/atten-pps3xxx/api.c
 endif
+if HW_GENERIC_IIO
+libsigrok_la_SOURCES += \
+	hardware/generic-iio/protocol.h \
+	hardware/generic-iio/protocol.c \
+	hardware/generic-iio/api.c
+endif
 if HW_BRYMEN_BM86X
 libsigrok_la_SOURCES += \
 	hardware/brymen-bm86x/protocol.h \
