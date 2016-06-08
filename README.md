@@ -14,11 +14,48 @@ This git repository is a fork of the official sigrok source code with the follow
 
 ## How to use
 
+To specify your IIO device, you may either :
+- only specify the generic-iio driver if the IIO devices are on the local machine
+- specify the the IP or Hostname after the generic-iio as :
+```
+sigrok-cli -d generic-iio:conn=baylibre-acme.local
+```
+- specify an XML file as :
+```
+sigrok-cli -d generic-iio:conn=my-context-file.xml
+```
+
+For PulseView, you cannot specify a conn variable, so you can use some Environement variables as :
+```
+IIOD_REMOTE=baylibre-acme.local pulseview
+```
+
 ### By replacing your already installed libsigrok
 
 #### Local build and install
 
-`TODO`
+Download and extract the release tarball, then :
+```
+$ ./configure
+$ make
+$ sudo make install
+```
+
+Make sure the configure script shows :
+```
+  - generic-iio..................... yes
+```
+You may miss the libiio library, install the following package :
+ * libiio-dev
+
+In order to use the distribution's sigrok-cli or pulseview, you may use LD_LIBRARY_PATH to use the previously built shared library, like :
+```
+$ LD_LIBRARY_PATH=/usr/local/bin sigrok-cli -V
+```
+or 
+```
+$ LD_LIBRARY_PATH=/usr/local/bin pulseview
+```
 
 #### Debian and derived pre-built package
 
