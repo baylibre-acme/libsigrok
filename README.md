@@ -39,6 +39,9 @@ See :
  * Almost supported, each device exported as channel group
  * Need testing over more IIO devices
 
+Releases :
+ * [libsigrok-0.3.0-iio0](https://github.com/baylibre-acme/libsigrok/releases/tag/libsigrok-0.3.0-iio0)
+
 ### 0.4.0
  * Bad state, should be cleaned up and aligned on the 0.3.3 version
  * Do not use these early development version
