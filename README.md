@@ -87,6 +87,7 @@ This method depends on the following libraries you should compile and install be
 - libserialport version 0.1.0 : http://sigrok.org/download/source/libserialport/libserialport-0.1.1.tar.gz
 
 And system provided libraries : pkg-config libglib2.0-dev libusb-1.0-0-dev libzip-dev
+
 And optionally : libftdi-dev
 
 Download and extract the release tarball, then :
