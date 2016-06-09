@@ -83,12 +83,12 @@ Supported hardware drivers:
 #### Local build and install
 
 This method depends on the following libraries you should compile and install before :
-- libiio version 0.6.0 : https://github.com/analogdevicesinc/libiio/archive/v0.6.tar.gz
-- system provided libraries : pkg-config libglib2.0-dev libzip-dev
+* libiio version 0.6.0 : https://github.com/analogdevicesinc/libiio/archive/v0.6.tar.gz
+* system provided libraries : pkg-config libglib2.0-dev libzip-dev
 
 And optionally (to support other sigrok devices) : 
-- system provided libraries : libftdi-dev libusb-1.0-0-dev
-- libserialport version 0.1.x : http://sigrok.org/download/source/libserialport/libserialport-0.1.1.tar.gz
+* system provided libraries : libftdi-dev libusb-1.0-0-dev
+* libserialport version 0.1.x : http://sigrok.org/download/source/libserialport/libserialport-0.1.1.tar.gz
 
 Download and extract the release tarball, then :
 ```
@@ -128,6 +128,9 @@ See :
 
 Releases :
  * [libsigrok-0.3.0-iio1](https://github.com/baylibre-acme/libsigrok/releases/tag/libsigrok-0.3.0-iio1)
+
+PPA Ubuntu archive :
+ * https://launchpad.net/~sigrok-iio/+archive/ubuntu/ppa
 
 ### 0.4.0
  * Bad state, should be cleaned up and aligned on the 0.3.3 version
