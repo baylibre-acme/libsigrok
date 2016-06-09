@@ -25,7 +25,7 @@
 #include <stdint.h>
 #include <glib.h>
 #include <unistd.h>
-#include <libsigrok/libsigrok.h>
+#include "libsigrok.h"
 #include "libsigrok-internal.h"
 
 #define LOG_PREFIX "generic-iio"
