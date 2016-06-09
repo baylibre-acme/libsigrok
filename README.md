@@ -133,8 +133,8 @@ PPA Ubuntu archive :
  * https://launchpad.net/~sigrok-iio/+archive/ubuntu/ppa
 
 ### 0.4.0
- * Bad state, should be cleaned up and aligned on the 0.3.3 version
- * Do not use these early development version
+ * Work ongoing on branch libsigrok-0.4.x-iio, is aligned on 0.3.x work, will serve as base for master work
+ * 0.4.x version is not packaged on Debian/ubuntu
 
 ### Master
  * Discution were started on the early 0.4.0 version, must be rebased on the 0.3.0 architecture and integrated in the official libsigrok source repository
