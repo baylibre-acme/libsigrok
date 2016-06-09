@@ -82,6 +82,13 @@ Supported hardware drivers:
 
 #### Local build and install
 
+This method depends on the following libraries you should compile and install before :
+- libiio version 0.6.0 : https://github.com/analogdevicesinc/libiio/archive/v0.6.tar.gz
+- libserialport version 0.1.0 : http://sigrok.org/download/source/libserialport/libserialport-0.1.1.tar.gz
+
+And system provided libraries : pkg-config libglib2.0-dev libusb-1.0-0-dev libzip-dev
+And optionally : libftdi-dev
+
 Download and extract the release tarball, then :
 ```
 $ ./configure
@@ -104,10 +111,6 @@ or
 ```
 $ LD_LIBRARY_PATH=/usr/local/bin pulseview
 ```
-
-#### Debian and derived pre-built package
-
-`TODO`
 
 ### By building a full sigrok install
 
