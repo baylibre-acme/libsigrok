@@ -101,8 +101,6 @@ Make sure the configure script shows :
 ```
   - generic-iio..................... yes
 ```
-You may miss the libiio library, install the following package :
- * libiio-dev
 
 In order to use the distribution's sigrok-cli or pulseview, you may use LD_LIBRARY_PATH to use the previously built shared library, like :
 ```
