@@ -30,7 +30,55 @@ For PulseView, you cannot specify a conn variable, so you can use some Environem
 IIOD_REMOTE=baylibre-acme.local pulseview
 ```
 
-### By replacing your already installed libsigrok
+### Ubuntu
+
+#### Ubuntu Xenial 16.04
+
+Replace the distribution libsigrok by adding the following PPA :
+```
+sudo add-apt-repository ppa:sigrok-iio/ppa
+```
+
+Then update and install the new libsigrok package :
+```
+sudo apt update
+sudo apt install sigrok-cli
+```
+This should trigger installation of a libsigrok-iio package.
+
+Running sigrok-cli should show the generic-iio package :
+```
+sigrok-cli -V
+...
+Supported hardware drivers:
+...
+  generic-iio          Generic IIO wrapper
+...
+```
+
+#### Ubuntu Trusty 14.04
+
+The installation depends on the official sigrok PPA archive, then the sigrok-iio PPA :
+```
+sudo add-apt-repository ppa:daniel-elstner/sigrok
+sudo add-apt-repository ppa:sigrok-iio/ppa
+```
+
+Then update and install the new libsigrok package :
+```
+sudo apt update
+sudo apt install sigrok-cli
+```
+
+Running sigrok-cli should show the generic-iio package :
+```
+sigrok-cli -V
+...
+Supported hardware drivers:
+...
+  generic-iio          Generic IIO wrapper
+...
+```
 
 #### Local build and install
 
