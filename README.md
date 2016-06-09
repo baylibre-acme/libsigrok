@@ -16,7 +16,7 @@ This git repository is a fork of the official sigrok source code with the follow
 
 To specify your IIO device, you may either :
 - only specify the generic-iio driver if the IIO devices are on the local machine
-- specify the the IP or Hostname after the generic-iio as :
+- specify the IP or Hostname after the generic-iio as :
 ```
 sigrok-cli -d generic-iio:conn=baylibre-acme.local
 ```
@@ -25,7 +25,7 @@ sigrok-cli -d generic-iio:conn=baylibre-acme.local
 sigrok-cli -d generic-iio:conn=my-context-file.xml
 ```
 
-For PulseView, you cannot specify a conn variable, so you can use some Environement variables as :
+For PulseView, you cannot specify a conn variable, so you can use some Environment variables as :
 ```
 IIOD_REMOTE=baylibre-acme.local pulseview
 ```
@@ -44,7 +44,7 @@ Then update and install the new libsigrok package :
 sudo apt update
 sudo apt install sigrok-cli
 ```
-This should trigger installation of a libsigrok-iio package.
+This should trigger installation of a libsigrok_iio package.
 
 Running sigrok-cli should show the generic-iio package :
 ```
@@ -84,11 +84,11 @@ Supported hardware drivers:
 
 This method depends on the following libraries you should compile and install before :
 - libiio version 0.6.0 : https://github.com/analogdevicesinc/libiio/archive/v0.6.tar.gz
-- libserialport version 0.1.0 : http://sigrok.org/download/source/libserialport/libserialport-0.1.1.tar.gz
+- system provided libraries : pkg-config libglib2.0-dev libzip-dev
 
-And system provided libraries : pkg-config libglib2.0-dev libusb-1.0-0-dev libzip-dev
-
-And optionally : libftdi-dev
+And optionally (to support other sigrok devices) : 
+- system provided libraries : libftdi-dev libusb-1.0-0-dev
+- libserialport version 0.1.x : http://sigrok.org/download/source/libserialport/libserialport-0.1.1.tar.gz
 
 Download and extract the release tarball, then :
 ```
@@ -127,7 +127,7 @@ See :
  * Need testing over more IIO devices
 
 Releases :
- * [libsigrok-0.3.0-iio0](https://github.com/baylibre-acme/libsigrok/releases/tag/libsigrok-0.3.0-iio0)
+ * [libsigrok-0.3.0-iio1](https://github.com/baylibre-acme/libsigrok/releases/tag/libsigrok-0.3.0-iio1)
 
 ### 0.4.0
  * Bad state, should be cleaned up and aligned on the 0.3.3 version
